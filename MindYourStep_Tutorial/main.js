@@ -88,7 +88,7 @@ window.boot = function () {
 		}
         
         
-        cc.view.setDesignResolutionSize(960, 640, 4 || ResolutionPolicy.FIXED_HEIGHT);
+        cc.view.setDesignResolutionSize(1080, 640, 4 || ResolutionPolicy.FIXED_HEIGHT);
         
         // init assets
         cc.AssetLibrary.init({
