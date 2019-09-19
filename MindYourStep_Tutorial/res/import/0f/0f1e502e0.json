@@ -1,1 +1,0 @@
-[{"__type__":"cc.ImageAsset","content":{"fmt":"0","w":2,"h":2}},{"__type__":"cc.SpriteFrame","content":{"base":{"base":"2,2,0,0,0,0,16,1","mipmaps":["7dj5uJT9FMn6OrOOx83tfK"]},"name":"sprite-frame","texture":"7dj5uJT9FMn6OrOOx83tfK@spriteFrame","rect":[0,0,2,2],"offset":[0,0],"originalSize":[2,2],"capInsets":[0,0,0,0]}}]

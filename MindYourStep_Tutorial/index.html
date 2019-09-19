@@ -1,59 +1,49 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-  <title>Cocos Creator | tutorial-mind-your-step-3d</title>
+    <title>Cocos Creator | tutorial-mind-your-step</title>
 
-  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="full-screen" content="yes"/>
-  <meta name="screen-orientation" content="portrait"/>
-  <meta name="x5-fullscreen" content="true"/>
-  <meta name="360-fullscreen" content="true"/>
-  
-  <meta name="renderer" content="webkit"/>
-  <meta name="force-rendering" content="webkit"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  
-  <link rel="stylesheet" type="text/css" href="web-desktop.css"/>
-</head>
-<body>
-<h1 class="header">tutorial-mind-your-step-3d</h1>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <h1 class="header">tutorial-mind-your-step</h1>
 
-<div id="GameDiv" style="width:960px; height: 640px;">
-  <canvas id="GameCanvas" width="960" height="640"></canvas>
-  <div id="splash">
-    <div class="progress-bar stripes">
-      <span style="width: 0%"></span>
+    <div id="GameDiv" style="width:px; height: px;">
+    <canvas id="GameCanvas" width="" height=""></canvas>
+    <div id="splash">
+      <div class="progress-bar stripes">
+        <span style="width: 0%"></span>
+      </div>
     </div>
-  </div>
-</div>
+    </div>
+    <p class="footer">
+      Created with <a href="http://cocos.com/cocoscreator" title="cocos creator">Cocos Creator</a>
+    </p>
+    <script src="src/cc-env.min.js" charset="utf-8"> </script>
 
-<p class="footer">Created with <a href="http://cocos.com/cocoscreator" title="cocos creator">Cocos Creator</a></p>
+<script src="src/babelHelpers.js" charset="utf-8"></script>
 
-<script src=""></script>
 <script src="src/settings.js" charset="utf-8"></script>
 <script src="main.js" charset="utf-8"></script>
-
 <script type="text/javascript">
-(function () {
-  
-
+  (function () {
     var splash = document.getElementById('splash');
-    splash.style.display = 'block';
-
-    var cocos3d = document.createElement('script');
-    cocos3d.async = true;
-    cocos3d.src = window._CCSettings.debug ? 'cocos3d-js.js' : 'cocos3d-js.min.js';
-
-    var engineLoaded = function () {
-        document.body.removeChild(cocos3d);
-        cocos3d.removeEventListener('load', engineLoaded, false);
-        window.boot();
-    };
-    cocos3d.addEventListener('load', engineLoaded, false);
-    document.body.appendChild(cocos3d);
+    if (splash) {
+      splash.style.display = 'block';
+    }
 
     const canv = document.getElementById('GameCanvas');
     const $p = canv.parentElement;
@@ -61,12 +51,14 @@
     canv.width = bcr.width;
     canv.height = bcr.height;
 
-    window.addEventListener('resize', () => {
-      const bcr = $p.getBoundingClientRect();
-      cc.director.root.resize(bcr.width, bcr.height);
+    window.importEngine().then(function() {
+      window.boot();
+      window.addEventListener('resize', () => {
+        const bcr = $p.getBoundingClientRect();
+        window.cc && cc.director.root.resize(bcr.width, bcr.height);
+      });
     });
-})();
+ })();
 </script>
-
-</body>
+  </body>
 </html>
